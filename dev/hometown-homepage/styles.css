@@ -1,0 +1,96 @@
+/**
+Palette: https://scrimba.com/links/hometown-palette
+RED: #E63946
+LIGHT: #F1FAEE
+AQUA: #A8DADC
+LIGHT BLUE: #457B9D
+DARK BLUE: #1D3557
+
+*/
+
+@font-face {
+    src: url("Story\ Night.ttf");
+    font-family: StoryNight;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: StoryNight, Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #ECD0A8;
+    color: #60482C;
+    font-size: larger;
+}
+
+#hero-section {
+    background-image: url("images/hero-taiwan.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 30vh;
+    padding: 10px 0 40px 0;
+
+}
+
+#hero-section > h1 {
+    color: #ECD0A8;
+    text-shadow: 0 0 5px black;
+    font-size: 50px;
+    letter-spacing: 2px;
+}
+
+#hero-section > h2 {
+    color: #ECD0A8;
+    text-shadow: 0 0 5px black;
+    font-size: 30px; 
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+#top-distination {
+    display: flex;
+    justify-content: space-around;
+}
+
+.destination {
+    width: 30vw;
+}
+
+#destination-section > h3 {
+    letter-spacing: 2px;
+}
+
+.destination > img {
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.destination > img:hover {
+    scale: 1.2;
+    border: 3px solid red;
+}
+
+#guide-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+    margin: 0 auto;
+    background-color: #f6f1ed;
+    padding: 0 10px;
+    border-bottom: 5px solid red;
+    text-shadow: 0 0 10px whitesmoke;
+    border-radius: 30px 30px 0 0;
+}
+
+
+
+#guide-section > img {
+    width: 100px;
+    height: 150px;
+    border-radius: 20px  0 0 0;
+}
+
