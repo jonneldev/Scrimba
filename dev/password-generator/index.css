@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:black;
+    font-family: "Karla";
+    background-color: #1F2937;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#password-generator {
+    padding: 50px 20px;
+    border-radius: 5px;
+    border: 2px solid transparent; /* Transparent border */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); /* Glowing effect */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+#password-generator:hover {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Enhanced glow on hover */
+}
+
+#header-text {
+    color: white;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+#highlight {
+   color: #4ADF86;
+   display: block;
+   margin-top: -10px;
+}
+
+#subheader-text {
+    color: #D5D4D8;
+    font-style: italic;
+}
+
+fieldset {
+    color: whitesmoke;
+    padding: 10px;
+    margin: 15px 0;
+}
+
+fieldset > legend {
+    font-size: large;
+}
+
+div > input {
+    margin-bottom: 7px;
+}
+
+#password-options {
+    border-top: 2px solid white;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+
+.password-option {
+    width: 150px;
+    height: 25px;
+    background-color: #273549;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 5px;
+    color: #4ADF86;
+}
+
+.password-option:hover {
+    cursor: pointer;
+}
+
+#password-length {
+    width: 40px;
+}
+
+#generate-button {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #4ADF86;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
