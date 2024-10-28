@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <title>Karaoke App</title>
+</head>
+<body>
+    <div class="container fade-in" id="reservation-page">
+        <h1>Reserve Room</h1>
+        <div>
+            <label for="room-no.">Room no.:</label>
+            <span id="room-input-error"></span>
+            <input type="text"  id="room-no">
+        </div>
+        <div>
+            <label for="room-password.">Password:</label>
+            <span id="password-input-error"></span>
+            <input type="password"  id="room-password">
+        </div>
+        <button id="reserved-room-btn">Reserve</button>
+    </div>
+    <script type="module" src="reserveRoom.js"></script>
+</body>
+</html>
+
