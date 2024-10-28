@@ -18,7 +18,7 @@
 
 body {
     background-color: #E5E5E5;
-    transition: transform 0.3s ease-in-out;
+    
 }
 
 .container {
@@ -26,6 +26,7 @@ body {
     width: 375px;
     margin: 0 auto;
     text-align: center;
+    transition: transform 0.3s ease-in-out;
 }
 
 /* Typoghaphy */
@@ -92,7 +93,7 @@ input {
 
 /* Slide out to the left effect */
 .slide-out {
-    transform: translateX(-100%);
+    transform: translateX(-500%);
 }
 
 span {
