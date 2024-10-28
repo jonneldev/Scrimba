@@ -94,7 +94,7 @@ async function reservedRoom() {
         }).then(() => {
             currentPage.classList.add('slide-out');
             setTimeout(() => {
-                window.location.href = 'display.html';  
+                window.location.href = '/display.html';  
             }, 500); 
         });
     }

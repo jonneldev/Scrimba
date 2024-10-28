@@ -105,7 +105,7 @@ function displayErrorMessage(message) {
 function navigateToAddSongPage() {
     currentPage.classList.add('slide-out');
     setTimeout(() => {
-        window.location.href = 'addSong.html';  
+        window.location.href = '/addSong.html';  
     }, 500); 
 }
 
