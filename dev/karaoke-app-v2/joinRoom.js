@@ -90,7 +90,13 @@ function displaySuccessMessage(roomNo) {
         title: `Room ${roomNo}`,
         text: "Enjoy your stay!",
         icon: "success",
-        confirmButtonText: 'OK'
+        width: "300px",
+        confirmButtonText: 'OK',
+        customClass: {
+            popup: 'my-popup',
+            title: 'my-title',
+            text: 'text'
+        }
     });
 }
 
@@ -98,7 +104,13 @@ function displayErrorMessage(message) {
     Swal.fire({
         icon: "error",
         title: "Oops...",
+        width: "300px",
         text: message,
+        customClass: {
+            popup: 'my-popup',
+            title: 'my-title',
+            text: 'text'
+        }
     });
 }
 

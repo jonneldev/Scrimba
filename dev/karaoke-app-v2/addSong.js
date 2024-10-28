@@ -70,7 +70,13 @@ function addSongToRoom(videoId) {
                         icon: 'success',
                         title: 'Success!',
                         text: 'Song added successfully!',
-                        confirmButtonText: 'OK'
+                        width: "300px",
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            popup: 'my-popup',
+                            title: 'my-title',
+                            text: 'text'
+                        }
                     });
                     inputURL.value = ""
                 })
@@ -80,7 +86,13 @@ function addSongToRoom(videoId) {
                         icon: 'error',
                         title: 'Error!',
                         text: 'Failed to add the song. Please try again.',
-                        confirmButtonText: 'OK'
+                        width: "300px",
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            popup: 'my-popup',
+                            title: 'my-title',
+                            text: 'text'
+                        }
                     });
                 });
         }, {
@@ -99,7 +111,12 @@ addSongBtn.addEventListener("click", function() {
             icon: 'error',
             title: 'Invalid URL!',
             text: 'Please enter a valid YouTube URL.',
-            confirmButtonText: 'OK'
+            confirmButtonText: 'OK',
+            customClass: {
+                popup: 'my-popup',
+                title: 'my-title',
+                text: 'text'
+            }
         });
     }
 });

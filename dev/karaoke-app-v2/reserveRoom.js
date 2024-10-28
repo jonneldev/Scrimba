@@ -39,6 +39,12 @@ function checkIfRoomExists(targetRoom) {
                     icon: "error",
                     title: "Oops...",
                     text: "Room already reserved by another guest!",
+                    width: "300px",
+                    customClass: {
+                        popup: 'my-popup',
+                        title: 'my-title',
+                        text: 'text'
+                    }
                 });
                 roomSpan.textContent = "Room already reserved by another guest";
             }
@@ -90,7 +96,13 @@ async function reservedRoom() {
             title: `Room ${roomNo} Reserved!`,
             text: "Enjoy your stay!",
             icon: "success",
-            confirmButtonText: 'OK'
+            width: "300px",
+            confirmButtonText: 'OK',
+            customClass: {
+                popup: 'my-popup',
+                title: 'my-title',
+                text: 'text'
+            }
         }).then(() => {
             currentPage.classList.add('slide-out');
             setTimeout(() => {
