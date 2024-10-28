@@ -7,14 +7,14 @@ const currentPage = document.getElementById("main-page")
 function goToReservationPage() {
     currentPage.classList.add('slide-out');  
     setTimeout(() => {
-        window.location.href = 'http://localhost:5176/reserveRoom.html';  
+        window.location.href = 'reserveRoom.html';  
     }, 500); 
 }
 
 function goJoinPage() {
     currentPage.classList.add('slide-out');  
     setTimeout(() => {
-        window.location.href = 'http://localhost:5176/joinRoom.html';  
+        window.location.href = 'joinRoom.html';  
     }, 500); 
 }
 
