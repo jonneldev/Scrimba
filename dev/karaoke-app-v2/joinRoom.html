@@ -16,15 +16,16 @@
         <div>
             <label for="room-no.">Room no.:</label>
             <span id="room-input-error"></span>
-            <input type="text"  id="room-no">
+            <input type="text" minlength="4" id="room-no">
         </div>
         <div>
             <label for="room-password.">Password:</label>
             <span id="password-input-error"></span>
-            <input type="text"  id="room-password">
+            <input type="password" minlength="4" id="room-password">
         </div>
         <button id="join-room-btn">Join</button>
     </div>
+    <button id="reserved-room-btn">Reserve</button>
     <script type="module" src="joinRoom.js"></script>
 </body>
 </html>

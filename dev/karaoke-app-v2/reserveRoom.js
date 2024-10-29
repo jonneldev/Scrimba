@@ -126,4 +126,10 @@ function resetErrorMessages() {
 
 reservedRoomBtn.addEventListener("click", reservedRoom)
 
-
+const backBtn = document.getElementById("back-btn")
+backBtn.addEventListener("click", () => {
+    currentPage.classList.add('slide-in');
+            setTimeout(() => {
+                window.location.href = '/index.html';  
+            }, 300); 
+})

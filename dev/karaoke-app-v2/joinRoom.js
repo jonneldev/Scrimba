@@ -122,3 +122,11 @@ function navigateToAddSongPage() {
 }
 
 joinRoomBtn.addEventListener("click", handleJoinRoom);
+
+const backBtn = document.getElementById("back-btn")
+backBtn.addEventListener("click", () => {
+    currentPage.classList.add('slide-in');
+            setTimeout(() => {
+                window.location.href = '/index.html';  
+            }, 300); 
+})

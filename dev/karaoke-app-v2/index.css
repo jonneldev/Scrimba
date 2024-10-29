@@ -18,7 +18,7 @@
 body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(to bottom right, #E6f6E6, #a8e6cf);
+    background: linear-gradient(180deg, #000000, #cf0eb6);
 }
 
 .container {
@@ -36,64 +36,103 @@ h1 {
 
     font-size: 2rem;
     font-weight: 400;
-    color: rgb(136, 22, 241);
+    color: white;
     margin-bottom: 25px;
     line-height: 1.3;
+    text-shadow: 
+        0 0 10px cyan,
+        0 0 20px cyan,
+        0 0 40px cyan,
+        0 0 80px cyan;
 }
 
 p {
-
+    margin: 10px 0;
     font-size: 1rem;
     font-weight: 400;
-    color: rgb(136, 22, 241);
+    color: white;
+    text-shadow: 
+        0 0 10px cyan,
+        0 0 20px cyan,
+        0 0 40px cyan,
+        0 0 80px cyan;
 }
 
 button {
-    width: 220px;
+    width: 250px;
     border-radius: 10px;
-    background-color: rgb(136, 22, 241);
-    color: #E5E5E5;
-    font-weight: 700;
-    height: 50px;
+    font-size: 1rem;
+    color: purple;
+    font-weight: 600;
+    height: 40px;
     margin: 5px 0;
-    border: 2px solid #FFFFFF;
+    border: 2px solid purple;
     transition: background-color 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    background-color: gainsboro;
+    box-shadow: 0 0 5px white;
+    margin-top: 15px;
 }
 
 button:hover {
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px white;
 }
 
 button:active {
-    background-color: rgb(98, 35, 156);
+    background-color: rgb(31, 30, 30);
 }
 
 label {
-    color: rgb(136, 22, 241);
+    color: rgb(219, 34, 114);
+    text-shadow: 
+        0 0 10px orangered,
+        0 0 20px orangered,
+        0 0 40px orangered,
+        0 0 80px red;
+    display: inline-block;
+    margin-top: 10px;
 
 }
 
 input {
-    width: 220px;
+    display: inline-block;
+    width: 250px;
     height: 40px;
     border-radius: 10px;
     padding-left: 10px;
-    background-color: #E5E5E5;
-    border: 2px solid rgb(136, 22, 241);
+    background-color: rgb(255, 255, 255, 0.2);
+    border: 2px solid cyan;
+    box-shadow: 0 0 5px white;
+    color: white;
+    text-shadow: 
+        0 0 10px cyan,
+        0 0 20px cyan,
+        0 0 40px cyan,
+        0 0 80px cyan;
     margin-bottom: 10px;
     margin-top: 5px;
+    transition: box-shadow 0.3s;
+}
+
+input:hover {
+    box-shadow: 
+        0 0 5px white,
+        0 0 10px white;
 }
 
 input:focus {
-    border-color: rgb(22, 136, 241); 
+    border-color: rgb(0, 255, 255); 
+    box-shadow: 
+        0 0 10px white,
+        0 0 15px white;
     outline: none
 }
 
 /* Fade-in effect when the page loads */
 .fade-in {
     opacity: 0;
-    animation: fadeIn 0.5s forwards;
+    animation: fadeIn 0.3s forwards;
 }
 
 @keyframes fadeIn {
@@ -105,6 +144,11 @@ input:focus {
 /* Slide out to the left effect */
 .slide-out {
     transform: translateX(-500%);
+}
+
+/* Slide out to the left effect */
+.slide-in {
+    transform: translateX(500%);
 }
 
 span {
@@ -130,5 +174,35 @@ span {
 
 .text {
     font-size: 0.7rem; 
+}
+
+#back-btn:hover {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#back-btn:active {
+    color: #cf0eb6;
+}
+
+#back-btn {
+    width: 40px;
+    background-color: transparent;
+    color: white;
+    text-shadow: 
+        0 0 10px cyan,
+        0 0 20px cyan,
+        0 0 40px cyan,
+        0 0 80px cyan;
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    top: 20px;
+    left: 10px;
+    transition: all 0.3s;
+    position: absolute;
 }
 

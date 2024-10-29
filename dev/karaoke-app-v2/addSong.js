@@ -121,3 +121,10 @@ addSongBtn.addEventListener("click", function() {
     }
 });
 
+const backBtn = document.getElementById("back-btn")
+backBtn.addEventListener("click", () => {
+    currentPage.classList.add('slide-in');
+            setTimeout(() => {
+                window.location.href = '/joinRoom.html';  
+            }, 300); 
+})
