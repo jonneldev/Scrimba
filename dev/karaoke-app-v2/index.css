@@ -23,7 +23,7 @@ body {
 
 /* Mobile adjustments */
 @media (max-width: 600px) {
-    .video-container {
+    #player {
         max-width: 100%; /* Full width on mobile */
         padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     }
