@@ -21,6 +21,14 @@ body {
     background: linear-gradient(180deg, #000000, #cf0eb6);
 }
 
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    .video-container {
+        max-width: 100%; /* Full width on mobile */
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    }
+}
+
 .container {
     padding-top: 80px;
     width: 375px;
