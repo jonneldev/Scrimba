@@ -12,7 +12,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: agent-red;
+    font-family: agent-red, sans-serif, Verdana, Geneva, Tahoma;
 }
 
 body {
