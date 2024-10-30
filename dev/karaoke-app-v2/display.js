@@ -59,15 +59,17 @@ function onYouTubeIframeAPIReady() {
 
     player = new YT.Player('player', {
         videoId: videoIds[currentIndex],
-        playerVars: { 'playsinline': 1 },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange,
+        playerVars: { 
+            'playsinline': 1,
             'controls': 1, // Show player controls
             'showinfo': 0, // Optional: Do not show video title
             'rel': 0, // Optional: Do not show related videos at the end
-            'vq': 'highres',
-            'fs': 1
+            'vq': 'highres', // Quality settings
+            'fs': 1 // Allow fullscreen
+        },
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
         }
     });
 }
