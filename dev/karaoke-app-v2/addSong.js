@@ -17,7 +17,7 @@ const database = getDatabase(app);
 const referenceInRoomDB = ref(database, "rooms");
 
 // DOM elements
-const currentPage = document.getElementById("reservation-page");
+const currentPage = document.getElementById("add-song-page");
 const inputURL = document.getElementById("inputURL");
 const addSongBtn = document.getElementById("add-song-btn");
 const occupiedRoom = document.getElementById("occupied-room");
