@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 50px;
+    font-family: "Smythe", sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #DEDEDE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.app-container {
+    width: 600px;
+    height: 100dvh;
+    background-color: #FFFFFF;
+}
+
+header {
+    background-image: url(./photos/header-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 65%; 
+    color: #FFFFFF;
+    padding: 50px;
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 39px;
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+header p {
+    font-size: 22.42px;
+    line-height: 13.8px;
+}
+
+#menu-container {
+    padding: 0 30px;
+}
+
+.menu-items {
+    display: flex;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #DEDEDE;
+    margin-bottom: 10px;
+}
+
+.menu-details {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.menu-emoji {
+    font-size: 78.72px;
+    line-height: 98.4px;
+    margin-right: 20px;
+}
+
+.menu-name {
+    font-size: 28px;
+    line-height: 16.8px;
+}
+
+.menu-ingredients {
+    font-size: 16px;
+    line-height: 24px;
+    color: #8B8B8B;
+
+}
+
+.menu-price {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.add-menu-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    border: 1.5px solid #DEDEDE;
+    margin-left: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-menu-btn:hover {
+    transform: scale(1.05);
+    background-color: #F8F8F8;
+    border-color: #C0C0C0;
+}
+
+.add-menu-btn:active {
+    transform: scale(0.95);
+    background-color: #E0E0E0;
+    border-color: #A0A0A0;
+}
+
+#order-section {
+    display: none;
+    padding: 0 30px;
+}
+
+
+#order-section h4 {
+    text-align: center;
+    font-size: 28px;
+    line-height: 16.8px;
+    color: #000000;
+    margin-top: 30px;
+}
+
+.order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.order-item .menu-name {
+    margin-right: 10px;
+}
+
+.order-item .remove-btn {
+    border: none;
+    background-color: #FFFFFF;
+    font-size: 12px;
+    color: #BBBBBB;
+    line-height: 24px;
+
+}
+
+.remove-btn:hover {
+    color: #FF0000;
+    cursor: pointer;
+}
+
+
+.order-item .menu-price {
+    margin-left: auto;
+}
+
+
+#total-price-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #393333;
+    display: flex;
+
+}
+
+.total-price {
+    font-size: 28px;
+    line-height: 24px;
+    color: #0E0E0E;
+
+}
+
+.total-order-price {
+    font-size: 20px;
+    line-height: 24px;
+    margin-left: auto;
+}
+
+#complete-order-btn {
+    width: 100%;
+    height: 50px;
+    background-color: #16DB99;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 3px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 24px;
+    font-weight: bold;
+    margin: 50px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#complete-order-btn:hover {
+    background-color: #0EAE7E;
+}
+
+#complete-order-btn:active {
+    background-color: #0EAE7E; /* Keeps the color change when clicked */
+    transform: scale(0.95); /* Shrinks the button slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow to simulate the click */
+}
+
+.modal {
+    width: 525px;
+    display: flex;
+    background-color: #FFFFFF;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    position: absolute;
+    top: 20%;
+    border-radius: 15px;
+    border: 2px solid red;
+    z-index: 2;
+
+}
+
+.modal h3 {
+    font-size: 24px;
+    line-height: 31.1px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.modal input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #DEDEDE;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.modal .pay-btn {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: #16DB99;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 31.1px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+
+.modal .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    color: red;
+    width: 30px;
+    height: 30px;
+    border: 1px solid red;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+}
+
+.modal .pay-btn:hover {
+    background-color: #0EAE7E;
+}
+
+.modal .pay-btn:active {
+    background-color: #0EAE7E; /* Keeps the color change when clicked */
+    transform: scale(0.95); /* Shrinks the button slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow to simulate the click */
+}
+
+h1 {
+    font-size: 32px;
+    color: #1ae2aa;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal.active,
+.overlay.active {
+    display: block;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}

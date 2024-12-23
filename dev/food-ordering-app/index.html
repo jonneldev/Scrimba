@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Smythe&display=swap" rel="stylesheet">
+    <title>Food Ordering App</title>
+</head>
+<body>
+    <div id="app-container" class="app-container">
+        <header>
+            <h2>Jimmy’s Diner</h2>
+            <p>The best burgers and pizzas in town.</p>
+        </header>
+
+        <main id="menu-container">
+
+        </main>
+
+
+        <div id="order-section">
+            <h4>Your order</h4>
+            <div id="order-container">
+
+            </div>
+            <div id="total-price-container">
+                <span class="total-price">Total price:</span>
+                <span id="total-order-price" class="total-order-price"></span>
+            </div>
+            <button id="complete-order-btn">Complete order</button>
+        </div>
+    </div>
+
+    <div id="modal" class="modal hidden">
+        <form id="payment-form">
+            <h3>Enter Card Details</h3>
+            <input type="text" placeholder="Enter your name" id="name" name="name" required>
+            <input type="text" placeholder="Enter card number" id="card-number" name="cardNumber" required>
+            <input type="text" placeholder="Enter CVV" id="cvv" name="cvv" required> 
+            <button id="pay-btn" class="pay-btn" type="submit">Pay</button>
+
+            <button id="close-modal-btn" type="button" class="close-btn">X</button>
+        </form>
+    </div>
+
+    <div id="overlay" class="overlay hidden"></div>
+    
+    <script type="module" src="index.js"></script>
+</body>
+</html>
