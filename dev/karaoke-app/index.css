@@ -1,0 +1,110 @@
+
+
+
+@font-face {
+    src: url("agent-red.regular.ttf");
+    font-family: agent-red;
+}
+
+
+
+/* Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+    font-family: agent-red;
+}
+
+body {
+    background-color: #E5E5E5;
+}
+
+.container {
+    padding-top: 50px;
+    width: 375px;
+    margin: 0 auto;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Typoghaphy */
+
+h1 {
+
+    font-size: 2rem;
+    font-weight: 400;
+    color: rgb(136, 22, 241);
+    margin-bottom: 15px;
+}
+
+p {
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(136, 22, 241);
+}
+
+button {
+    width: 220px;
+    border-radius: 10px;
+    background-color: rgb(136, 22, 241);
+    color: #E5E5E5;
+    font-weight: 700;
+    height: 50px;
+    margin: 5px 0;
+    border: 2px solid #FFFFFF;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: #FCA311;
+}
+
+label {
+    color: rgb(136, 22, 241);
+
+}
+
+input {
+    width: 220px;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: #E5E5E5;
+    border: 2px solid rgb(136, 22, 241);
+    margin-bottom: 10px;
+}
+
+/* Fade-in effect when the page loads */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide out to the left effect */
+.slide-out {
+    transform: translateX(-200%);
+}
+
+span {
+    display: block;
+    color: red;
+    font-size: 0.8rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman';
+
+}
+
+
+
+#occupied-room {
+    margin-top: 20px;
+}

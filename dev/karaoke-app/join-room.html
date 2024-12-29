@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Karaoke App</title>
+</head>
+<body>
+    <div class="container" id="join-room-page">
+        <h1>Join Room</h1>
+        <div>
+            <label for="room-no.">Room no.:</label>
+            <span id="room-input-error"></span>
+            <input type="text"  id="room-no">
+        </div>
+        <div>
+            <label for="room-password.">Password:</label>
+            <span id="password-input-error"></span>
+            <input type="text"  id="room-password">
+        </div>
+        <button id="join-room-btn">Join</button>
+    </div>
+    <script type="module" src="join-room.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
