@@ -1,0 +1,108 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    font-family: "Source Sans 3", sans-serif, Arial;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    width: 100vw;
+}
+
+.header-logo {
+    display: flex;
+}
+
+.logo-img {
+    width: 23px;
+    height: 23px;
+    margin-right: 0.5em;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #333;
+    margin-right: 0.5em;
+}
+
+main .hero {
+    background-color: grey;
+    color: ghostwhite;
+    width: 100vw;
+    height: 300px;
+    background-image: url(../images/article-image-hero.png);
+    padding: 5em 1em 1em;
+    margin-bottom: 1em;
+}
+
+main .blog-post,
+main div {
+    padding: 1em;
+}
+
+h1 {
+    line-height: 1;
+    letter-spacing: 0.3;
+    margin: 0.5em 0;
+
+}
+main div img {
+    margin: 1em 0;
+}
+main div p {
+    margin-bottom: 1.5em;
+}
+
+.blog-items {
+    margin-bottom: 3.5em;
+}
+
+.blog-items img,
+main div img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.hero span,
+article span,
+div span {
+    font-size: 0.8rem;
+    color: gray;
+    font-style: italic;
+}
+
+.blog-post h4 {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 2em;
+}
+
+.blog-post h4:hover,
+.blog-post h4:focus {
+    color: #333;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #333;
+    color: ghostwhite;
+    padding: 1em;
+    text-align: center;
+}
+
+footer span {
+    display: block;
+}
