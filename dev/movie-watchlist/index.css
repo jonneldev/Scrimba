@@ -95,6 +95,11 @@ main #movies-container {
 .movie-item {
     display: flex;
     color: whitesmoke;
+    border-bottom: 2px solid gainsboro;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    letter-spacing: 1px;
+    font-family: "Roboto", sans-serif;
 }
 
 .movie-item img {
@@ -103,9 +108,29 @@ main #movies-container {
     margin-right: 1em;
 }
 
-.movie-info > div:first-child {
+.movie-info > div {
     display: flex;
     align-items: center;
+    margin-bottom: 1em;
+}
+
+.movie-info div:nth-child(2) {
+    justify-content: space-between;
+    padding-right: 3em;
+}
+
+.movie-info div div button {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    outline: none;
+}
+
+.movie-info div div button:hover,
+.movie-info div div label:hover {
+    background-color: #f1c40f;
+    color: black;
+    cursor: pointer;
 }
 
 .movie-info div h2 {

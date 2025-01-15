@@ -42,8 +42,10 @@ movieSearchBtn.addEventListener("click", async () => {
                     <div>
                         <p class="movie-runtime">${movie.Runtime}</p>
                         <p class="movie-genre">${movie.Genre}</p>
-                        <button>+</button>
-                        <label>Watchlist</label>
+                        <div>
+                            <button>+</button>
+                            <label>Watchlist</label>
+                        </div>
                     </div>
                     <p class="movie-plot">${movie.Plot}</p>
                 </div>
