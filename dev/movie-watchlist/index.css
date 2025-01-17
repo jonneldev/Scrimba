@@ -11,7 +11,7 @@ body {
     background-color: rgb(90, 83, 83);
 }
 
-#container {
+.container {
     width: 100vw;
     height: 100dvh;
 
@@ -74,75 +74,150 @@ header p:hover {
     color: black;
     font-size: 1.2em;
     cursor: pointer;
+    margin-bottom: 1em;
 }
 
 
-main #movies-container .movie-placeholder {
+#movies-container {
+    padding: 0 2.5em;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.movie-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 10em;
+    color: gainsboro;
 }
 
-#movies-container img {
+.movie-placeholder:hover {
+    cursor: pointer;
+    color: #f1c40f;
+}
+
+.movie-placeholder img {
     margin-right: 0.5em;
 }
 
-main #movies-container {
-    padding: 2em 2.5em;
-}
-
 .movie-item {
-    display: flex;
-    color: whitesmoke;
     border-bottom: 2px solid gainsboro;
-    padding-bottom: 1em;
-    margin-bottom: 1em;
-    letter-spacing: 1px;
-    font-family: "Roboto", sans-serif;
+    padding: 0.5em 0;
+    display: flex;
+    height: 150px;
+    width: 100%;
+    overflow: hidden;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .movie-item img {
     width: 100px;
-    height: 150px;
-    margin-right: 1em;
-}
-
-.movie-info > div {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1em;
-}
-
-.movie-info div:nth-child(2) {
-    justify-content: space-between;
-    padding-right: 3em;
-}
-
-.movie-info div div button {
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
     outline: none;
 }
 
-.movie-info div div button:hover,
-.movie-info div div label:hover {
+.movie-item p:last-child {
+    display: none;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-left: 0.5em;
+}
+.movie-info h2 {
+    font-size: 1.2em;
+    margin-top: auto;
+    line-height: 1.1;
+    text-overflow: hidden;
+    height: 2em;
+}
+
+.movie-info div:nth-child(2) {
+    font-size: 0.8rem;
+}
+
+.movie-info div button {
+    border-radius: 5px;
     background-color: #f1c40f;
-    color: black;
+    padding: 0.2em 0.4em;
+    margin-top: 0.5em;
+}
+
+.movie-info div button:hover {
+    background-color: #f39c12;
+    cursor: pointer;
+    
+}
+
+
+
+
+
+
+/* Movie Watchlist Page */
+
+main {
+    height: 100%;
+}
+
+
+#movie-watchlist-container {
+    height: 100%;
+    text-align: center;
+    margin-top: 4em;
+}
+
+.empty-watchlist {
+    text-align: center;
+    margin-top: 50px;
+    color: #333;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.empty-image {
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+#movie-watchlist-container p {
+    color: gainsboro;
+    margin-bottom: 0.5em;
+}
+
+#movie-watchlist-container button {
+    border-radius: 5px;
+    background-color: #f1c40f;
+    padding: 0.2em 0.4em;
+    margin-top: 0.5em;
+}
+
+#movie-watchlist-container button:hover {
+    background-color: #f39c12;
     cursor: pointer;
 }
 
-.movie-info div h2 {
-    margin-right: 0.5em;
+
+.error {
+    color: whitesmoke;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 2em;
+    letter-spacing: 2px;
 }
-
-
-
-
-
-
-
 
 
 
@@ -157,14 +232,28 @@ main #movies-container {
         align-items: center;
     }
 
+    #search-container {
+        width: 100%;
+        padding: 0 2.5em;
+    }
+
     #search-container input {
-        width: 80%;
-        margin-bottom: 1em;
+        width: 100%;
+        margin-bottom: 0.5em;
     }
 
     #search-container button {
-        width: 80%;
-    }    
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .movie-info {
+        justify-content: space-between;
+    }
+    
+    .movie-info div:nth-child(2) p {
+        display: none;
+    }
 
 }
 
