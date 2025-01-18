@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const searchMovie = async (movie) => {
         try {
-            const url = `${BASE_URL}${API_KEY}&s=${encodeURIComponent(movie)}`;
+            const url = `${BASE_URL}${API_KEY}&s=${movie}`;
             const response = await fetch(url);
 
             if (!response.ok) {
@@ -166,6 +166,4 @@ document.addEventListener("DOMContentLoaded", () => {
     myWatchlist.addEventListener("click", () => {
         window.location.href = "watchlist-page.html";
     });
-
-
 });

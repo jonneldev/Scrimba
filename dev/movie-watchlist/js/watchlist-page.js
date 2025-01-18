@@ -1,17 +1,15 @@
-document.addEventListener("DOMException", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
     const movieWatchlistContainer = document.getElementById("movie-watchlist-container")
 
-
-    const displayWatchlist = () => {
+    const displayWatchlist = async () => {
 
         const movieWatchlist = 
-        JSON.parse(localStorage.getItem("movieWatchlist"))
-
-        console.log(movieWatchlist)
-        console.log(movieWatchlist)
+            await JSON.parse(localStorage.getItem("myWatchlist"))
         
+            
         if (movieWatchlist === null) {
+            console.log("empty watchlist")
             return
         }
 
@@ -27,32 +25,25 @@ document.addEventListener("DOMException", () => {
                 <div class="movie-info">
                     <div>
                         <h2>${movie.Title}</h2>
-                        <p class="movie-title">⭐ ${movie.imdbRating || "N/A"}</p>
+                        <p class="movie-title">⭐ ${movie.imdbRating}</p>
                     </div>
                     <div>
-                        <p class="movie-runtime">${movie.Runtime || "N/A"}</p>
-                        <p class="movie-genre">${movie.Genre || "N/A"}</p>
-                        <button data-movie-id="${movie.imdbID}" class="add-movie-btn">+ Watchlist</button>
+                        <p class="movie-runtime">${movie.Runtime}</p>
+                        <p class="movie-genre">${movie.Genre}</p>
+                        <button data-movie-id="${movie.imdbID}" class="remove-movie-btn">Remove</button>
                     </div>
-                    <p class="movie-plot">${movie.Plot || "No plot available."}</p>
+                    <p class="movie-plot">${movie.Plot}</p>
                 </div>
             `;
 
             fragment.appendChild(movieDiv);
         });
-        console.log(movieWatchlist)
         movieWatchlistContainer.appendChild(fragment);
 
-
-
-     }
+    }
      
 
-     displayWatchlist()
-
-
-
-
-
+    displayWatchlist()
+    
 
 })
