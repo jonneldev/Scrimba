@@ -1,0 +1,17 @@
+{
+  "name": "Scrim-s017k6u",
+  "description": "https://scrimba.com/the-frontend-developer-career-path-c0j/~0pu",
+  "scripts": {
+    "watch": "webpack -w",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "webpack": "^2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0",
+    "babel-loader": "^7.0",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*"
+  }
+}
