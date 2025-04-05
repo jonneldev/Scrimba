@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { clsx } from "clsx"
 import { languages } from "./languages"
 import { getFarewellText, getRandomWord } from "./utils"
@@ -22,20 +22,31 @@ export default function AssemblyEndgame() {
     // State values
     const [currentWord, setCurrentWord] = useState(() => getRandomWord())
     const [guessedLetters, setGuessedLetters] = useState([])
+    const [timeLeft, setTimeLeft] = useState(60);
 
     // Derived values
     const numGuessesLeft = languages.length - 1
-    const wrongGuessCount =
+    let wrongGuessCount =
         guessedLetters.filter(letter => !currentWord.includes(letter)).length
     const isGameWon =
         currentWord.split("").every(letter => guessedLetters.includes(letter))
-    const isGameLost = wrongGuessCount >= numGuessesLeft
+    const isGameLost = wrongGuessCount >= numGuessesLeft || timeLeft <= 0
     const isGameOver = isGameWon || isGameLost
     const lastGuessedLetter = guessedLetters[guessedLetters.length - 1]
     const isLastGuessIncorrect = lastGuessedLetter && !currentWord.includes(lastGuessedLetter)
 
     // Static values
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+     // 60 seconds timer
+    useEffect(() => {
+        if (timeLeft > 0 && !isGameOver) {
+            const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+            return () => clearTimeout(timer);
+        } else {
+            console.log("Time's up!");
+        }
+    }, [timeLeft, isGameOver]);
 
     function addGuessedLetter(letter) {
         setGuessedLetters(prevLetters =>
@@ -151,6 +162,14 @@ export default function AssemblyEndgame() {
                 <h1>Assembly: Endgame</h1>
                 <p>Guess the word within 8 attempts to keep the
                 programming world safe from Assembly!</p>
+                <div className="timer-container">
+                    <div
+                        className="timer-bar"
+                        style={{ width: `${(timeLeft / 60) * 100}%` }}
+                    >   
+                    </div>
+                    <p className="timer-text">Time Left: {timeLeft}s</p>
+                </div>
             </header>
 
             <section
