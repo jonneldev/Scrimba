@@ -1,7 +1,7 @@
 import React from "react"
 import IngredientsList from "./components/IngredientsList"
 import ClaudeRecipe from "./components/ClaudeRecipe"
-import { getRecipeFromChefClaude, getRecipeFromMistral } from "./ai"
+import { getRecipeFromMistral } from "./ai"
 
 export default function Main() {
     const [ingredients, setIngredients] = React.useState(
@@ -10,7 +10,7 @@ export default function Main() {
     const [recipe, setRecipe] = React.useState("")
 
     async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
+        const recipeMarkdown = await getRecipeFromMistral(ingredients)
         setRecipe(recipeMarkdown)
     }
 
@@ -21,7 +21,10 @@ export default function Main() {
 
     return (
         <main>
-            <form action={addIngredient} className="add-ingredient-form">
+            <form onSubmit={(e) => {
+                    e.preventDefault(); // Prevent the default form submission behavior
+                    addIngredient(new FormData(e.target)); // Pass the form data to the function
+                }} className="add-ingredient-form">
                 <input
                     type="text"
                     placeholder="e.g. oregano"
