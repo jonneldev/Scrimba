@@ -1,26 +1,123 @@
-import { HfInference } from '@huggingface/inference'
+const API_KEY = import.meta.env.VITE_SPOONACULAR_API_KEY
+const API_URL = 'https://api.spoonacular.com/recipes/findByIngredients'
 
-const SYSTEM_PROMPT = `
-You are an assistant that receives a list of ingredients that a user has and suggests a recipe they could make with some or all of those ingredients. You don't need to use every ingredient they mention in your recipe. The recipe can include additional ingredients they didn't mention, but try not to include too many extra ingredients. Format your response in markdown to make it easier to render to a web page
-`
+// Helper function to convert HTML to markdown
+function htmlToMarkdown(html) {
+    // Remove any <p> tags and replace with newlines
+    let markdown = html.replace(/<p>/g, '').replace(/<\/p>/g, '\n\n')
+    
+    // Convert <ol> and <li> to markdown numbered list
+    markdown = markdown.replace(/<ol>/g, '').replace(/<\/ol>/g, '')
+    markdown = markdown.replace(/<li>/g, '1. ').replace(/<\/li>/g, '\n')
+    
+    // Remove any remaining HTML tags
+    markdown = markdown.replace(/<[^>]*>/g, '')
+    
+    // Clean up extra whitespace
+    markdown = markdown.replace(/\n\s*\n\s*\n/g, '\n\n')
+    
+    return markdown.trim()
+}
 
-// Make sure you set an environment variable in Scrimba 
-// for HF_ACCESS_TOKEN
-const hf = new HfInference(import.meta.env.VITE_HF_ACCESS_TOKEN)
-
-export async function getRecipeFromMistral(ingredientsArr) {
-    const ingredientsString = ingredientsArr.join(", ")
+export async function getRecipeFromSpoonacular(ingredientsArr) {
     try {
-        const response = await hf.chatCompletion({
-            model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
-            messages: [
-                { role: "system", content: SYSTEM_PROMPT },
-                { role: "user", content: `I have ${ingredientsString}. Please give me a recipe you'd recommend I make!` },
-            ],
-            max_tokens: 1024,
+        // First, get recipe IDs that match our ingredients
+        const searchParams = new URLSearchParams({
+            ingredients: ingredientsArr.join(','),
+            number: 1,
+            ranking: 1,
+            ignorePantry: true,
+            apiKey: API_KEY
         })
-        return response.choices[0].message.content
+
+        const searchResponse = await fetch(`${API_URL}?${searchParams}`)
+        if (!searchResponse.ok) {
+            throw new Error('Failed to find recipes')
+        }
+
+        const recipes = await searchResponse.json()
+        if (!recipes.length) {
+            throw new Error('No recipes found with these ingredients')
+        }
+
+        // Get the recipe details
+        const recipeId = recipes[0].id
+        const recipeResponse = await fetch(
+            `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${API_KEY}`
+        )
+        
+        if (!recipeResponse.ok) {
+            throw new Error('Failed to get recipe details')
+        }
+
+        const recipeDetails = await recipeResponse.json()
+
+        // Format the recipe in a structured object
+        return {
+            title: recipeDetails.title,
+            ingredients: recipeDetails.extendedIngredients.map(ing => ing.original),
+            instructions: recipeDetails.instructions ? htmlToMarkdown(recipeDetails.instructions).split('\n').filter(line => line.trim()) : [],
+            sourceUrl: recipeDetails.sourceUrl || '#',
+            readyInMinutes: recipeDetails.readyInMinutes,
+            servings: recipeDetails.servings
+        }
     } catch (err) {
         console.error(err.message)
+        throw new Error("Failed to generate recipe. Please try again later.")
+    }
+}
+
+// Keep the old function for backward compatibility
+export async function getRecipeFromMistral(ingredientsArr) {
+    try {
+        // First, get recipe IDs that match our ingredients
+        const searchParams = new URLSearchParams({
+            ingredients: ingredientsArr.join(','),
+            number: 1,
+            ranking: 1,
+            ignorePantry: true,
+            apiKey: API_KEY
+        })
+
+        const searchResponse = await fetch(`${API_URL}?${searchParams}`)
+        if (!searchResponse.ok) {
+            throw new Error('Failed to find recipes')
+        }
+
+        const recipes = await searchResponse.json()
+        if (!recipes.length) {
+            throw new Error('No recipes found with these ingredients')
+        }
+
+        // Get the recipe details
+        const recipeId = recipes[0].id
+        const recipeResponse = await fetch(
+            `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${API_KEY}`
+        )
+        
+        if (!recipeResponse.ok) {
+            throw new Error('Failed to get recipe details')
+        }
+
+        const recipeDetails = await recipeResponse.json()
+
+        // Format the recipe in markdown
+        return `
+# ${recipeDetails.title}
+
+## Ingredients
+${recipeDetails.extendedIngredients.map(ing => `- ${ing.original}`).join('\n')}
+
+## Instructions
+${htmlToMarkdown(recipeDetails.instructions || 'No instructions available.')}
+
+## Additional Information
+- Ready in: ${recipeDetails.readyInMinutes} minutes
+- Servings: ${recipeDetails.servings}
+${recipeDetails.sourceUrl ? `- Source: ${recipeDetails.sourceUrl}` : ''}
+`
+    } catch (err) {
+        console.error(err.message)
+        throw new Error("Failed to generate recipe. Please try again later.")
     }
 }

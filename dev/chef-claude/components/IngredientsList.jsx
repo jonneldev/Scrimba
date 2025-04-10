@@ -11,7 +11,13 @@ export default function IngredientsList(props) {
                     <h3>Ready for a recipe?</h3>
                     <p>Generate a recipe from your list of ingredients.</p>
                 </div>
-                <button onClick={props.getRecipe}>Get a recipe</button>
+                <button 
+                    onClick={props.getRecipe}
+                    disabled={props.isLoading}
+                    aria-busy={props.isLoading}
+                >
+                    {props.isLoading ? "Generating..." : "Get a recipe"}
+                </button>
             </div>}
         </section>
     )
